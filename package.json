@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "start": "node -e \"console.log('Deploy on Vercel')\""
+  },
   "dependencies": {
     "mongodb": "^6.16.0"
   }

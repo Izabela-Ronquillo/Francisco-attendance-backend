@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Francisco Attendance Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Francisco Attendance Portal</h1>
+        <p class="sub">Manage attendance records for FranciscoAttendancePortal / Attendance_List</p>
+      </header>
+
+      <section class="card">
+        <h2 id="form-title">Add Attendance Record</h2>
+        <form id="attendance-form" class="form">
+          <input type="hidden" id="record-id" />
+          <label>Date<input id="date" name="date" type="date" required /></label>
+          <label>Subject Name<input id="subjectName" name="subjectName" required placeholder="e.g. IT 301" /></label>
+          <label>Section<input id="section" name="section" required placeholder="e.g. BSIT-3A" /></label>
+          <label>Student Name<input id="studentName" name="studentName" required placeholder="Full name" /></label>
+          <div class="actions">
+            <button type="submit" id="submit-btn">Add Record</button>
+            <button type="button" id="cancel-btn" class="secondary hidden">Cancel</button>
+          </div>
+        </form>
+        <div id="error" class="msg error hidden"></div>
+        <div id="notice" class="msg ok hidden"></div>
+      </section>
+
+      <section class="card">
+        <div class="table-head">
+          <h2>Attendance Records</h2>
+          <button type="button" id="refresh-btn" class="secondary">Refresh</button>
+        </div>
+        <div id="loading" class="muted">Loading records...</div>
+        <div id="empty" class="muted hidden">No attendance records found.</div>
+        <div class="table-wrap hidden" id="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Subject Name</th>
+                <th>Section</th>
+                <th>Student Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="records-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
