@@ -1,4 +1,4 @@
-﻿import { ObjectId } from "mongodb";
+import { ObjectId } from "mongodb";
 import { getCollection, toRecord, setCors, isValidId } from "../../lib/db.js";
 
 export default async function handler(req, res) {

@@ -1,4 +1,4 @@
-﻿# Francisco Attendance Backend
+# Francisco Attendance Backend
 
 Serverless API for FranciscoAttendancePortal (MongoDB Atlas).
 
