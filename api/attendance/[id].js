@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getCollection, toRecord, setCors, isValidId } from "../../lib/db.js";
+import { getCollection, toRecord, setCors, isValidId, requireAuth } from "../../lib/db.js";
 
 export default async function handler(req, res) {
   setCors(res);
@@ -11,6 +11,10 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (req.method === "PUT" || req.method === "DELETE") {
+      if (!requireAuth(req, res)) return;
+    }
+
     const col = await getCollection();
     const _id = new ObjectId(id);
 

@@ -1,4 +1,4 @@
-import { getCollection, toRecord, setCors } from "../../lib/db.js";
+import { getCollection, toRecord, setCors, requireAuth } from "../../lib/db.js";
 
 export default async function handler(req, res) {
   setCors(res);
@@ -13,6 +13,7 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "POST") {
+      if (!requireAuth(req, res)) return;
       const { date, subjectName, section, studentName } = req.body || {};
       if (!date || !subjectName || !section || !studentName) {
         return res.status(400).json({ error: "date, subjectName, section, and studentName are required" });
